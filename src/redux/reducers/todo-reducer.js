@@ -16,6 +16,13 @@ function todoReducer(state = initialState, action) {
       return {
         todos: cloneTodos,
       };
+    case 'DELETE_TODO':
+      const filterTodo = state.todos.filter(
+        (item) => item.id != action.payload
+      );
+      return {
+        todos: filterTodo,
+      };
     default:
       return state;
   }
@@ -25,6 +32,13 @@ export function addTodo(input) {
   return {
     type: 'ADD_TODO',
     payload: input,
+  };
+}
+
+export function deleteTodo(id) {
+  return {
+    type: 'DELETE_TODO',
+    payload: id,
   };
 }
 
