@@ -3,8 +3,8 @@ import ListTodo from './components/ListTodo';
 
 function App() {
   return (
-    <div>
-      <h1>Todo App</h1>
+    <div className="container mx-20 my-20">
+      <h1 className="font-bold text-2xl">Todo App</h1>
       <InputTodo />
       <ListTodo />
     </div>
