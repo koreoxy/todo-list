@@ -1,25 +1,105 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { deleteTodo } from '../redux/reducers/todo-reducer';
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  deleteTodo,
+  editTodo,
+  setFilter,
+  toggleTodo,
+} from '../redux/reducerTodo';
+import EditTodo from './EditTodo';
 
-function ListTodo() {
-  const { todos } = useSelector((state) => state.todo);
+const TodoList = () => {
+  const todos = useSelector((state) => {
+    const filter = state.todos.filter;
+    if (filter === 'completed') {
+      return state.todos.value.filter((todo) => todo.completed);
+    } else if (filter === 'incompleted') {
+      return state.todos.value.filter((todo) => !todo.completed);
+    } else {
+      return state.todos.value;
+    }
+  });
   const dispatch = useDispatch();
+  const [activeFilter, setActiveFilter] = useState('all');
 
-  const handleDelete = (id) => {
-    dispatch(deleteTodo(id));
+  const handleFilterChange = (filter) => {
+    setActiveFilter(filter);
+    dispatch(setFilter(filter));
+  };
+
+  const [editTodoId, setEditTodoId] = useState(null);
+
+  const handleEditTodo = (todoId) => {
+    setEditTodoId(todoId);
+  };
+
+  const handleEditComplete = () => {
+    setEditTodoId(null);
   };
 
   return (
-    <>
-      {todos.map((item) => (
-        <div key={item.id}>
-          <span>{item.value}</span>
-          <button>🖊</button>
-          <button onClick={() => handleDelete(item.id)}>❎</button>
-        </div>
-      ))}
-    </>
-  );
-}
+    <div>
+      <div className="w-screen flex flex-row justify-evenly items-center bg-slate-400 ">
+        <button
+          onClick={() => handleFilterChange('all')}
+          className={activeFilter === 'all' ? 'font-bold' : ''}
+        >
+          All
+        </button>
+        <button
+          onClick={() => handleFilterChange('completed')}
+          className={activeFilter === 'completed' ? 'font-bold' : ''}
+        >
+          Completed
+        </button>
+        <button
+          onClick={() => handleFilterChange('incompleted')}
+          className={activeFilter === 'incompleted' ? 'font-bold' : ''}
+        >
+          Incompleted
+        </button>
+      </div>
+      <div>
+        {todos.map((todo) => (
+          <div key={todo.id}>
+            {editTodoId === todo.id ? (
+              <EditTodo todo={todo} onEditComplete={handleEditComplete} />
+            ) : (
+              <div className="mb-5 w-screen flex flex-col items-center">
+                <div className="bg-yellow-500  p-5 ">
+                  <span
+                    onClick={() => dispatch(toggleTodo(todo.id))}
+                    style={{
+                      textDecoration: todo.completed ? 'line-through' : 'none',
+                    }}
+                  >
+                    {todo.text}
+                  </span>
 
-export default ListTodo;
+                  <div>
+                    <button
+                      onClick={() => handleEditTodo(todo.id)}
+                      className="bg-green-500 p-2 me-2"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => {
+                        dispatch(deleteTodo({ id: todo.id }));
+                      }}
+                      className="bg-red-500 p-2"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default TodoList;
