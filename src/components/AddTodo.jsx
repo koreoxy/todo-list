@@ -21,10 +21,10 @@ const AddTodo = () => {
   };
 
   return (
-    <div className="border-2 border-[#202020] rounded-full p-2 hover:shadow-md">
+    <div className="border-2 border-[#444444] rounded-full p-2 hover:shadow-md">
       <div className="flex flex-row justify-between">
         <input
-          className="bg-transparent py-2 px-3 text-[#9797f7] font-bold  w-full focus:outline-none"
+          className="bg-transparent py-2 px-3 text-[#9797f7] font-bold w-full focus:outline-none"
           type="text"
           placeholder="Masukan task baru..."
           value={text}

@@ -2,8 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   value: [
-    { id: 1, text: 'belajar redux' },
-    { id: 2, text: 'belajar react' },
+    { id: 1, text: 'Hari ini aku mau belajar' },
+    { id: 2, text: 'Olahraga dan Main bola' },
   ],
   filter: 'all',
 };

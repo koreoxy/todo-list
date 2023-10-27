@@ -10,7 +10,6 @@
     --color-2: #444444;
     --color-3: #da0037;
     --color-4: #ededed;
-
     --color-purplenew: #9797f7;
     --color-blacknew: #202020;
     --color-rednew: #ff5a5a;
@@ -24,7 +23,8 @@
   }
 
   .dark-mode {
-    background-color: black;
-    color: white;
+    background-color: #171717;
+    color: #ededed;
+    min-height: 100vh;
   }
 }
