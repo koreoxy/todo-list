@@ -39,7 +39,7 @@ const TodoList = () => {
 
   return (
     <div>
-      <div className="w-screen flex flex-row justify-evenly items-center bg-slate-400 ">
+      <div className="">
         <button
           onClick={() => handleFilterChange('all')}
           className={activeFilter === 'all' ? 'font-bold' : ''}
@@ -65,8 +65,8 @@ const TodoList = () => {
             {editTodoId === todo.id ? (
               <EditTodo todo={todo} onEditComplete={handleEditComplete} />
             ) : (
-              <div className="mb-5 w-screen flex flex-col items-center">
-                <div className="bg-yellow-500  p-5 ">
+              <div className="">
+                <div className="bg-primary p-5 ">
                   <span
                     onClick={() => dispatch(toggleTodo(todo.id))}
                     style={{
@@ -79,9 +79,9 @@ const TodoList = () => {
                   <div>
                     <button
                       onClick={() => handleEditTodo(todo.id)}
-                      className="bg-green-500 p-2 me-2"
+                      className="bg-success p-2 me-2"
                     >
-                      Edit
+                      Update
                     </button>
                     <button
                       onClick={() => {

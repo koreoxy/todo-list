@@ -1,3 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary1: #171717;
+    --color-2: #444444;
+    --color-3: #da0037;
+    --color-4: #ededed;
+
+    --color-purplenew: #9797f7;
+    --color-blacknew: #202020;
+    --color-rednew: #ff5a5a;
+    --color-yellownew: #fcaa51;
+  }
+
+  body {
+    background-color: #ededed;
+    color: #202020;
+    font-family: 'Karla', sans-serif;
+  }
+
+  .dark-mode {
+    background-color: black;
+    color: white;
+  }
+}
