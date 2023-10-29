@@ -1,8 +1,12 @@
-# React + Vite
+# Todo List App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Live Demo
+- https://todolist-app-x.netlify.app/
 
-Currently, two official plugins are available:
+### View
+- Light Mode
+![screencapture-todolist-app-x-netlify-app-2023-10-29-14_29_34](https://github.com/koreoxy/todo-list/assets/73381115/426f6b3b-4529-4729-b2aa-90fcc9a49c61)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Dark Mode
+![screencapture-todolist-app-x-netlify-app-2023-10-29-14_30_31](https://github.com/koreoxy/todo-list/assets/73381115/6a8f45d3-27c1-4bf7-81ea-5cf0c4023d08)
+
