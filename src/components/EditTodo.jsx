@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { editTodo } from '../redux/reducerTodo';
+import { editTodo } from '../redux/todoSlice';
 import { PlusCircleIcon } from '@heroicons/react/24/outline';
 
 const EditTodo = ({ todo, onEditComplete }) => {

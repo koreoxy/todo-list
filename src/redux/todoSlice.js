@@ -10,7 +10,6 @@ const initialState = {
 
 export const todoSlice = createSlice({
   name: 'todos',
-  // initialState: { value: DataTodo },
   initialState,
 
   reducers: {

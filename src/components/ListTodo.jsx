@@ -5,7 +5,7 @@ import {
   editTodo,
   setFilter,
   toggleTodo,
-} from '../redux/reducerTodo';
+} from '../redux/todoSlice';
 import EditTodo from './EditTodo';
 import { PencilSquareIcon, TrashIcon } from '@heroicons/react/24/outline';
 
